@@ -41,6 +41,16 @@ pip install -e ".[all]"
 
 Equivalent dependency lists are provided in `requirements.txt`, `requirements-api.txt`, `requirements-qwen.txt`, and `requirements-all.txt`. If you install through one of those files, finish with `pip install -e . --no-deps` to register the `chartjudge` command.
 
+For paper-style local GPU inference, the recommended reproducible setup follows Chart2Code's Conda-based approach and pins the compatible PyTorch/Transformers stack:
+
+```bash
+conda env create -f environment.yaml
+conda activate chartjudgebench
+pip install -e . --no-deps
+```
+
+The provided environment targets the Linux/CUDA 12.x stack used by the reference setup. If your CUDA driver requires a different PyTorch build, install the matching `torch`/`torchvision` pair first, then install the remaining dependencies from `requirements-qwen.txt`.
+
 ## Quick start
 
 ### 1. Verify the official prompts
@@ -160,7 +170,8 @@ ChartJudgeBench/
 ├── requirements.txt       # Core dependencies
 ├── requirements-api.txt   # OpenAI-compatible API dependencies
 ├── requirements-qwen.txt  # Qwen/ThinkLite dependencies
-└── requirements-all.txt   # Every supported backend
+├── requirements-all.txt   # Every supported backend
+└── environment.yaml       # Reproducible local GPU environment
 ```
 
 ## Reproducibility notes

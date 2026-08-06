@@ -1,0 +1,26 @@
+name: chartjudgebench
+channels:
+  - defaults
+dependencies:
+  - python=3.11.13
+  - pip=25.2
+  - setuptools=78.1.1
+  - wheel=0.45.1
+  - pip:
+      # Core benchmark
+      - datasets==4.8.3
+      - huggingface-hub==0.34.4
+      - pillow==11.3.0
+      - tqdm==4.67.1
+
+      # OpenAI-compatible APIs
+      - openai==1.107.2
+      - python-dotenv==1.1.1
+
+      # Local Qwen3-VL / ThinkLite-VL inference
+      - torch==2.7.1
+      - torchvision==0.22.1
+      - transformers==4.51.3
+      - accelerate==1.10.1
+      - qwen-vl-utils==0.0.11
+
