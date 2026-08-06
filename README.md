@@ -21,18 +21,25 @@ The image data stays on Hugging Face. This repository contains the official prom
 ```bash
 git clone https://github.com/hush699/ChartJudgeBench.git
 cd ChartJudgeBench
-pip install -e .
 ```
 
-Install the optional backend you need:
+Choose the backend you need:
 
 ```bash
+# Core: dataset loading and offline scoring
+pip install -e .
+
 # OpenAI-compatible APIs
 pip install -e ".[api]"
 
 # Local Qwen/ThinkLite models
 pip install -e ".[qwen]"
+
+# Every supported backend
+pip install -e ".[all]"
 ```
+
+Equivalent dependency lists are provided in `requirements.txt`, `requirements-api.txt`, `requirements-qwen.txt`, and `requirements-all.txt`. If you install through one of those files, finish with `pip install -e . --no-deps` to register the `chartjudge` command.
 
 ## Quick start
 
@@ -149,7 +156,11 @@ ChartJudgeBench/
 ├── docs/                  # User documentation
 ├── examples/              # Custom model example
 ├── results/               # Paper results (coming soon)
-└── tests/                 # Protocol and metric regression tests
+├── tests/                 # Protocol and metric regression tests
+├── requirements.txt       # Core dependencies
+├── requirements-api.txt   # OpenAI-compatible API dependencies
+├── requirements-qwen.txt  # Qwen/ThinkLite dependencies
+└── requirements-all.txt   # Every supported backend
 ```
 
 ## Reproducibility notes

@@ -14,6 +14,7 @@ authors = [
 ]
 dependencies = [
   "datasets>=2.19.0",
+  "huggingface-hub>=0.23.0",
   "Pillow>=10.0.0",
   "tqdm>=4.66.0",
 ]
@@ -26,7 +27,6 @@ qwen = [
   "accelerate>=0.30.0",
   "qwen-vl-utils>=0.0.8",
 ]
-test = []
 all = [
   "openai>=1.30.0",
   "python-dotenv>=1.0.0",
