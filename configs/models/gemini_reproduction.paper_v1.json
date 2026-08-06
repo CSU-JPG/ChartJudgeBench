@@ -1,0 +1,18 @@
+{
+  "task": "ChartReproduction",
+  "adapter": "openai_compatible",
+  "adapter_kwargs": {
+    "model": "gemini-3.1-pro-preview",
+    "api_key_env": "OPENAI_API_KEY",
+    "base_url_env": "OPENAI_API_URL",
+    "timeout": 60.0,
+    "generation": {
+      "temperature": 0.1,
+      "max_tokens": 512
+    }
+  },
+  "runner": {
+    "workers": 5
+  }
+}
+

@@ -1,0 +1,11 @@
+{
+  "adapter": "custom",
+  "class_path": "examples.custom_model:MyModelAdapter",
+  "adapter_kwargs": {
+    "model_name": "my-model"
+  },
+  "runner": {
+    "workers": 1
+  }
+}
+

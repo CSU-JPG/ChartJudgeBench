@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chartjudge-bench"
+version = "0.1.0"
+description = "Official evaluation toolkit for ChartJudgeBench"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [
+  {name = "ChartJudgeBench Team"},
+]
+dependencies = [
+  "datasets>=2.19.0",
+  "Pillow>=10.0.0",
+  "tqdm>=4.66.0",
+]
+
+[project.optional-dependencies]
+api = ["openai>=1.30.0", "python-dotenv>=1.0.0"]
+qwen = [
+  "torch>=2.1.0",
+  "transformers>=4.49.0",
+  "accelerate>=0.30.0",
+  "qwen-vl-utils>=0.0.8",
+]
+test = []
+all = [
+  "openai>=1.30.0",
+  "python-dotenv>=1.0.0",
+  "torch>=2.1.0",
+  "transformers>=4.49.0",
+  "accelerate>=0.30.0",
+  "qwen-vl-utils>=0.0.8",
+]
+
+[project.scripts]
+chartjudge = "chartjudge_bench.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["chartjudge_bench*"]
+
+[tool.setuptools.package-data]
+chartjudge_bench = ["prompt_assets/paper_v1/*.txt", "prompt_assets/paper_v1/*.json"]

@@ -1,0 +1,21 @@
+{
+  "version": "paper_v1",
+  "source": "Original user-provided evaluation scripts",
+  "prompts": {
+    "chart_reproduction_system": {
+      "file": "chart_reproduction_system.txt",
+      "remove_file_terminal_newline": false,
+      "sha256": "edd6825266a513281e3a32063cc50e782a5b322956fae548db6a30dfbe3e3be8"
+    },
+    "chart_editing_system": {
+      "file": "chart_editing_system.txt",
+      "remove_file_terminal_newline": false,
+      "sha256": "d8c6aee9ef4c33bd67c1d0c25ce4160174165834df53036cf4b8b8c4593348ed"
+    },
+    "cpa_system_instruction": {
+      "file": "cpa_system_instruction.txt",
+      "remove_file_terminal_newline": true,
+      "sha256": "2302f7ce41f73904c573d006f0df9e747e5fb93f3dde858bc09e90d68a7cb17e"
+    }
+  }
+}
