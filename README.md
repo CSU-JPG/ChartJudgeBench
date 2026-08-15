@@ -3,10 +3,10 @@
 <h4 align="center">Welcome to ChartJudgeBench! If you find this repository useful, please give it a star ⭐.</h4>
 
 <p align="center">
-  <img height="24" src="https://img.shields.io/badge/Paper-Coming_Soon-B31B1B?style=for-the-badge&amp;logo=arxiv&amp;logoColor=white" alt="Paper Coming Soon">
-  <a href="https://hush699.github.io/chartjudge/"><img height="24" src="https://img.shields.io/badge/Project-Page-7289DA?style=for-the-badge&amp;logo=githubpages&amp;logoColor=white" alt="Project Page"></a>
-  <a href="https://github.com/hush699/ChartJudgeBench"><img height="24" src="https://img.shields.io/badge/GitHub-Repository-100000?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="GitHub Repository"></a>
-  <a href="https://huggingface.co/CSU-JPG"><img height="24" src="https://img.shields.io/badge/Hugging_Face-Dataset-FFB22B?style=for-the-badge&amp;logo=huggingface&amp;logoColor=white" alt="Hugging Face Dataset"></a>
+  <img height="28" src="https://img.shields.io/badge/Paper-arXiv-B31B1B?style=for-the-badge&amp;logo=arxiv&amp;logoColor=white" alt="Paper on arXiv">
+  <a href="https://hush699.github.io/chartjudge/"><img height="28" src="https://img.shields.io/badge/Project-Page-7289DA?style=for-the-badge&amp;logo=githubpages&amp;logoColor=white" alt="Project Page"></a>
+  <a href="https://github.com/hush699/ChartJudgeBench"><img height="28" src="https://img.shields.io/badge/GitHub-Repository-100000?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="GitHub Repository"></a>
+  <a href="https://huggingface.co/CSU-JPG"><img height="28" src="https://img.shields.io/badge/Hugging_Face-Dataset-FFB22B?style=for-the-badge&amp;logo=huggingface&amp;logoColor=white" alt="Hugging Face Dataset"></a>
 </p>
 
 ## 🌟 Overview
