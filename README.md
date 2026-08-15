@@ -3,10 +3,10 @@
 <h4 align="center">Welcome to ChartJudgeBench! If you find this repository useful, please give it a star ⭐.</h4>
 
 <p align="center">
-  <a href="https://hush699.github.io/chartjudge/"><img src="https://img.shields.io/badge/Project_Page-5865F2?style=flat-square" alt="Project Page"></a>
-  <img src="https://img.shields.io/badge/Paper_Coming_Soon-B31B1B?style=flat-square" alt="Paper Coming Soon">
-  <a href="https://github.com/hush699/ChartJudgeBench"><img src="https://img.shields.io/badge/GitHub_Repository-181717?style=flat-square&amp;logo=github" alt="GitHub Repository"></a>
-  <a href="https://huggingface.co/CSU-JPG"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=black" alt="Hugging Face"></a>
+  <img src="https://img.shields.io/badge/Paper-Coming_Soon-B31B1B?style=for-the-badge&amp;logo=arxiv&amp;logoColor=white" alt="Paper Coming Soon">
+  <a href="https://hush699.github.io/chartjudge/"><img src="https://img.shields.io/badge/Project_Page-ChartJudgeBench-7289DA?style=for-the-badge&amp;logo=githubpages&amp;logoColor=white" alt="Project Page"></a>
+  <a href="https://github.com/hush699/ChartJudgeBench"><img src="https://img.shields.io/badge/Code-ChartJudgeBench-100000?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="GitHub Repository"></a>
+  <a href="https://huggingface.co/CSU-JPG"><img src="https://img.shields.io/badge/Dataset-ChartJudgeBench-FFB22B?style=for-the-badge&amp;logo=huggingface&amp;logoColor=white" alt="Hugging Face Dataset"></a>
 </p>
 
 ## 🌟 Overview
@@ -121,4 +121,4 @@ See [docs/CUSTOM_MODELS.md](docs/CUSTOM_MODELS.md) and
 ## 📄 License
 
 - Code: [Apache License 2.0](LICENSE)
-- Dataset: [CC BY 4.0](DATA_LICENSE.md)
+- Dataset: [CC BY 4.0](docs/DATA_LICENSE.md)
