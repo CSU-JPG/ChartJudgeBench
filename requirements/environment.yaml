@@ -16,4 +16,3 @@ dependencies:
       # OpenAI-compatible APIs
       - openai==1.107.2
       - python-dotenv==1.1.1
-

@@ -1,12 +1,12 @@
-<h1 align="center">ChartJudgeBench: Evaluating LMM Judges for Chart-to-Code Generation</h1>
+<h2 align="center">ChartJudgeBench: Evaluating LMM Judges for Chart-to-Code Generation</h2>
 
 <h4 align="center">Welcome to ChartJudgeBench! If you find this repository useful, please give it a star ⭐.</h4>
 
 <p align="center">
-  <a href="https://hush699.github.io/chartjudge/"><img src="https://img.shields.io/badge/PROJECT_PAGE-CHARTJUDGEBENCH-7289DA?style=for-the-badge" alt="Project Page"></a>
-  <img src="https://img.shields.io/badge/PAPER-COMING_SOON-B31B1B?style=for-the-badge" alt="Paper Coming Soon">
-  <a href="https://github.com/hush699/ChartJudgeBench"><img src="https://img.shields.io/badge/CODE-CHARTJUDGEBENCH-181717?style=for-the-badge&amp;logo=github" alt="GitHub Repository"></a>
-  <a href="https://huggingface.co/CSU-JPG"><img src="https://img.shields.io/badge/DATASET-CHARTJUDGEBENCH-FFD21E?style=for-the-badge&amp;logo=huggingface&amp;logoColor=black" alt="Hugging Face"></a>
+  <a href="https://hush699.github.io/chartjudge/"><img src="https://img.shields.io/badge/Project_Page-5865F2?style=flat-square" alt="Project Page"></a>
+  <img src="https://img.shields.io/badge/Paper_Coming_Soon-B31B1B?style=flat-square" alt="Paper Coming Soon">
+  <a href="https://github.com/hush699/ChartJudgeBench"><img src="https://img.shields.io/badge/GitHub_Repository-181717?style=flat-square&amp;logo=github" alt="GitHub Repository"></a>
+  <a href="https://huggingface.co/CSU-JPG"><img src="https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&amp;logo=huggingface&amp;logoColor=black" alt="Hugging Face"></a>
 </p>
 
 ## 🌟 Overview
@@ -22,14 +22,6 @@ weak visual-style judgment, and leniency in RL-trained models.
 <p align="center">
   <img src="assets/chartjudgebench_overview.png" alt="ChartJudgeBench overview" width="100%">
 </p>
-
-| Task | Samples | Output |
-|---|---:|---|
-| CPA | 1,003 pairs | Better chart |
-| ChartEditing | 335 cases | Accept / Reject |
-| ChartReproduction | 315 cases | Accept / Reject |
-
-Dataset: [Lijian9/ChartJudgeBench](https://huggingface.co/datasets/Lijian9/ChartJudgeBench)
 
 ## 🚀 Quick Start
 

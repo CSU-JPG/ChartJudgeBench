@@ -65,10 +65,10 @@ Use a separate environment when model requirements conflict:
 
 | Backend | Starting point |
 |---|---|
-| Qwen, MiMo, ThinkLite, LLaVA-Critic | The checkpoint's official environment, plus `requirements-qwen.txt` |
-| InternVL2.5/3.5 | The checkpoint's official environment, or `requirements-internvl.txt` as a minimal starting point |
+| Qwen, MiMo, ThinkLite, LLaVA-Critic | The checkpoint's official environment, plus `requirements/qwen.txt` |
+| InternVL2.5/3.5 | The checkpoint's official environment, or `requirements/internvl.txt` as a minimal starting point |
 | DeepSeek-VL | Install the official DeepSeek-VL package/repository, then `pip install -e . --no-deps` |
-| Molmo | Install the checkpoint-compatible vLLM version; `requirements-vllm.txt` is only a minimal starting point |
+| Molmo | Install the checkpoint-compatible vLLM version; `requirements/vllm.txt` is only a minimal starting point |
 | GLM-4V, Kimi-VL, Molmo2 | Use the Transformers version required by the checkpoint |
 
 The project does not claim that one frozen environment can load all model
