@@ -1,0 +1,13 @@
+{
+  "display_name": "Molmo",
+  "checkpoint_name": "Molmo-7B-D-0924",
+  "adapter": "molmo_vllm",
+  "adapter_kwargs": {
+    "model_path": "/path/to/Molmo-7B-D-0924",
+    "dtype": "float16",
+    "gpu_memory_utilization": 0.9,
+    "max_model_len": 4096,
+    "generation": {"max_tokens": 512, "temperature": 0.1, "top_p": 0.9, "stop": ["<|endoftext|>"]}
+  },
+  "runner": {"workers": 1}
+}

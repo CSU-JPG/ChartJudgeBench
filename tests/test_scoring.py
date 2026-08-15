@@ -6,17 +6,39 @@ from chartjudge_bench.scoring import score_predictions
 class ScoringTests(unittest.TestCase):
     def test_cpa_official_primary_and_diagnostics(self):
         truth = [
-            {"pair_id": "1", "category": "Data_Fidelity", "subcategory": "Axis_Scaling", "chart_type": "bar"},
-            {"pair_id": "2", "category": "Data_Fidelity", "subcategory": "Axis_Scaling", "chart_type": "line"},
-            {"pair_id": "3", "category": "Visual_Effects", "subcategory": "Visual_Style", "chart_type": "pie"},
-            {"pair_id": "4", "category": "Visual_Effects", "subcategory": "Visual_Style", "chart_type": "area"},
+            {
+                "pair_id": "1",
+                "category": "Data_Fidelity",
+                "subcategory": "Axis_Scaling",
+                "chart_type": "bar",
+            },
+            {
+                "pair_id": "2",
+                "category": "Data_Fidelity",
+                "subcategory": "Axis_Scaling",
+                "chart_type": "line",
+            },
+            {
+                "pair_id": "3",
+                "category": "Visual_Effects",
+                "subcategory": "Visual_Style",
+                "chart_type": "pie",
+            },
+            {
+                "pair_id": "4",
+                "category": "Visual_Effects",
+                "subcategory": "Visual_Style",
+                "chart_type": "area",
+            },
         ]
         predictions = [
             {"sample_id": "1", "status": "Consistent_Correct"},
             {"sample_id": "2", "status": "Bias_Position_A"},
             {"sample_id": "3", "status": "Parse_Fail"},
         ]
-        metrics = score_predictions("CPA", predictions, truth, require_official_size=False)
+        metrics = score_predictions(
+            "CPA", predictions, truth, require_official_size=False
+        )
         self.assertEqual(metrics["overall_accuracy"], 0.25)
         self.assertEqual(metrics["dimension_accuracy"]["Axis_Scaling"]["accuracy"], 0.5)
         self.assertEqual(metrics["dimension_accuracy"]["Visual_Style"]["accuracy"], 0.0)
@@ -62,4 +84,3 @@ class ScoringTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

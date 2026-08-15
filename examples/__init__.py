@@ -1,2 +1,1 @@
 """ChartJudgeBench examples."""
-

@@ -2,7 +2,11 @@ import unittest
 
 from chartjudge_bench.parsing import cpa_status, parse_accept_reject, parse_cpa_choice
 from chartjudge_bench.prompts import verify_all_prompts
-from chartjudge_bench.protocols import CPAProtocol, ChartEditingProtocol, ChartReproductionProtocol
+from chartjudge_bench.protocols import (
+    CPAProtocol,
+    ChartEditingProtocol,
+    ChartReproductionProtocol,
+)
 
 
 EXPECTED_HASHES = {
@@ -17,10 +21,18 @@ class PromptAndProtocolTests(unittest.TestCase):
         self.assertEqual(verify_all_prompts(), EXPECTED_HASHES)
 
     def test_original_parsers(self):
-        self.assertEqual(parse_accept_reject("[Answer]: Accept\n[Reason]: ok")[0], "Accept")
-        self.assertEqual(parse_accept_reject("<think>x</think>[Answer]: Reject")[0], "Reject")
-        self.assertEqual(parse_accept_reject("Accept and Reject are both possible")[0], "Unknown")
-        self.assertEqual(parse_cpa_choice(r"<think>x</think>\boxed{Image B}")[0], "Image B")
+        self.assertEqual(
+            parse_accept_reject("[Answer]: Accept\n[Reason]: ok")[0], "Accept"
+        )
+        self.assertEqual(
+            parse_accept_reject("<think>x</think>[Answer]: Reject")[0], "Reject"
+        )
+        self.assertEqual(
+            parse_accept_reject("Accept and Reject are both possible")[0], "Unknown"
+        )
+        self.assertEqual(
+            parse_cpa_choice(r"<think>x</think>\boxed{Image B}")[0], "Image B"
+        )
         self.assertEqual(cpa_status("Image A", "Image B"), "Consistent_Correct")
 
     def test_cpa_has_original_two_pass_order_and_text(self):
@@ -33,7 +45,9 @@ class PromptAndProtocolTests(unittest.TestCase):
             "worse_image": "BAD",
         }
         requests = CPAProtocol().build_requests(sample)
-        self.assertEqual([request.pass_name for request in requests], ["Forward", "Reverse"])
+        self.assertEqual(
+            [request.pass_name for request in requests], ["Forward", "Reverse"]
+        )
         self.assertEqual(requests[0].messages[0]["content"][1]["image"], "GOOD")
         self.assertEqual(requests[0].messages[0]["content"][3]["image"], "BAD")
         self.assertEqual(requests[1].messages[0]["content"][1]["image"], "BAD")
@@ -54,7 +68,9 @@ class PromptAndProtocolTests(unittest.TestCase):
         }
         request = ChartEditingProtocol().build_requests(sample)[0]
         blocks = request.messages[0]["content"]
-        self.assertIn('**User Instruction**: "Change only the title."', blocks[0]["text"])
+        self.assertIn(
+            '**User Instruction**: "Change only the title."', blocks[0]["text"]
+        )
         self.assertEqual(blocks[1]["image"], "REF")
         self.assertEqual(blocks[3]["image"], "EDIT")
 
@@ -74,4 +90,3 @@ class PromptAndProtocolTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

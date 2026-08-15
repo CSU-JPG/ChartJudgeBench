@@ -20,7 +20,9 @@ def read_jsonl(path: str | Path) -> list[dict[str, Any]]:
             try:
                 records.append(json.loads(line))
             except json.JSONDecodeError as exc:
-                raise ValueError(f"Invalid JSON at line {line_number} in {path}") from exc
+                raise ValueError(
+                    f"Invalid JSON at line {line_number} in {path}"
+                ) from exc
     return records
 
 
@@ -193,7 +195,9 @@ def score_predictions(
 ) -> dict[str, Any]:
     """Score predictions against dataset-owned labels and IDs."""
     task = canonical_task_name(task)
-    prediction_records = read_jsonl(predictions) if isinstance(predictions, (str, Path)) else predictions
+    prediction_records = (
+        read_jsonl(predictions) if isinstance(predictions, (str, Path)) else predictions
+    )
     truth = _index_unique((normalize_truth(task, row) for row in truth_rows), "truth")
     indexed_predictions = _index_unique(prediction_records, "prediction")
 
@@ -203,7 +207,9 @@ def score_predictions(
         )
     extra_ids = sorted(set(indexed_predictions) - set(truth))
     if strict_extra_ids and extra_ids:
-        raise ValueError(f"Predictions contain unknown IDs: {', '.join(extra_ids[:10])}")
+        raise ValueError(
+            f"Predictions contain unknown IDs: {', '.join(extra_ids[:10])}"
+        )
 
     metrics = (
         _score_cpa(truth, indexed_predictions)
@@ -212,4 +218,3 @@ def score_predictions(
     )
     metrics["diagnostics"]["extra_prediction_ids"] = extra_ids
     return metrics
-

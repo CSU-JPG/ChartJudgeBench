@@ -18,7 +18,9 @@ def load_chartjudge(
     try:
         from datasets import load_dataset
     except ImportError as exc:
-        raise RuntimeError("Install the package dependencies before loading data.") from exc
+        raise RuntimeError(
+            "Install the package dependencies before loading data."
+        ) from exc
 
     task = canonical_task_name(task)
     spec = TASK_SPECS[task]
@@ -76,7 +78,8 @@ def normalize_sample(task: str, row: Mapping[str, Any]) -> dict[str, Any]:
     return sample
 
 
-def iter_truth(task: str, rows: Iterable[Mapping[str, Any]]) -> Iterator[dict[str, Any]]:
+def iter_truth(
+    task: str, rows: Iterable[Mapping[str, Any]]
+) -> Iterator[dict[str, Any]]:
     for row in rows:
         yield normalize_truth(task, row)
-

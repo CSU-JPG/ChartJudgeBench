@@ -1,0 +1,13 @@
+{
+  "display_name": "InternVL2.5-38B",
+  "adapter": "internvl",
+  "adapter_kwargs": {
+    "model_path": "/path/to/InternVL2_5-38B",
+    "torch_dtype": "bfloat16",
+    "balanced_device_map": true,
+    "image_size": 448,
+    "max_tiles": 12,
+    "generation": {"max_new_tokens": 512, "temperature": 0.1, "top_p": 0.9, "do_sample": true}
+  },
+  "runner": {"workers": 1}
+}

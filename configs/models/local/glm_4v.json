@@ -1,0 +1,15 @@
+{
+  "display_name": "GLM-4V",
+  "checkpoint_name": "GLM-4.6V-Flash",
+  "adapter": "transformers_chat",
+  "adapter_kwargs": {
+    "model_path": "/path/to/GLM-4.6V-Flash",
+    "model_class": "Glm4vForConditionalGeneration",
+    "image_mode": "inline",
+    "torch_dtype": "bfloat16",
+    "device_map": "auto",
+    "drop_input_keys": ["token_type_ids"],
+    "generation": {"max_new_tokens": 512, "temperature": 0.1, "top_p": 0.9, "do_sample": true}
+  },
+  "runner": {"workers": 1}
+}

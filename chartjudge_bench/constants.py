@@ -54,4 +54,3 @@ def canonical_task_name(task: str) -> str:
     except KeyError as exc:
         choices = ", ".join(TASK_SPECS)
         raise ValueError(f"Unknown task {task!r}. Choose one of: {choices}") from exc
-

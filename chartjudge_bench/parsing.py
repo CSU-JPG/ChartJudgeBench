@@ -42,4 +42,3 @@ def cpa_status(forward: str | None, reverse: str | None) -> str:
     if forward == "Image A" and reverse == "Image A":
         return "Bias_Position_A"
     return "Parse_Fail"
-

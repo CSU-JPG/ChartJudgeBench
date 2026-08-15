@@ -1,0 +1,14 @@
+{
+  "display_name": "Qwen2.5-VL-7B",
+  "adapter": "qwen_transformers",
+  "adapter_kwargs": {
+    "model_path": "/path/to/Qwen2.5-VL-7B-Instruct",
+    "model_classes": ["Qwen2_5_VLForConditionalGeneration", "AutoModelForVision2Seq", "AutoModelForImageTextToText"],
+    "torch_dtype": "bfloat16",
+    "device_map": "auto",
+    "max_pixels": 1638400,
+    "min_pixels": 65536,
+    "generation": {"max_new_tokens": 512, "temperature": 0.1, "top_p": 0.9, "do_sample": true}
+  },
+  "runner": {"workers": 1}
+}

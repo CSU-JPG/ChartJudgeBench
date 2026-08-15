@@ -14,4 +14,3 @@ class MyModelAdapter(ModelAdapter):
     def generate(self, request) -> str:
         # request.messages contains the exact benchmark prompt and ordered images.
         raise NotImplementedError("Connect your model here and return its raw text")
-

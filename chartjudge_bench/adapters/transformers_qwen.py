@@ -10,7 +10,6 @@ class QwenTransformersAdapter(ModelAdapter):
     """Local Transformers adapter for Qwen-family vision-language models."""
 
     thread_safe = False
-    model_class_name = "AutoModelForImageTextToText"
 
     def __init__(
         self,
@@ -21,7 +20,11 @@ class QwenTransformersAdapter(ModelAdapter):
         trust_remote_code: bool = True,
         max_pixels: int | None = 1024 * 1024,
         min_pixels: int | None = None,
+        model_classes: list[str] | None = None,
+        request_suffix: str = "",
+        request_suffix_by_task: dict[str, str] | None = None,
         generation: dict[str, Any] | None = None,
+        model_load_kwargs: dict[str, Any] | None = None,
     ) -> None:
         try:
             import torch
@@ -34,6 +37,8 @@ class QwenTransformersAdapter(ModelAdapter):
 
         self.torch = torch
         self.process_vision_info = process_vision_info
+        self.request_suffix = request_suffix
+        self.request_suffix_by_task = dict(request_suffix_by_task or {})
         self.processor = transformers.AutoProcessor.from_pretrained(
             model_path, trust_remote_code=trust_remote_code
         )
@@ -44,21 +49,55 @@ class QwenTransformersAdapter(ModelAdapter):
             if min_pixels is not None and hasattr(image_processor, "min_pixels"):
                 image_processor.min_pixels = min_pixels
 
-        dtype = getattr(torch, torch_dtype)
-        model_class = getattr(transformers, self.model_class_name)
-        self.model = model_class.from_pretrained(
-            model_path,
-            dtype=dtype,
-            device_map=device_map,
-            trust_remote_code=trust_remote_code,
-        ).eval()
+        class_candidates = model_classes or ["AutoModelForImageTextToText"]
+        load_kwargs = dict(model_load_kwargs or {})
+        load_kwargs.setdefault("torch_dtype", getattr(torch, torch_dtype))
+        load_kwargs.setdefault("device_map", device_map)
+        load_kwargs.setdefault("trust_remote_code", trust_remote_code)
+        errors = []
+        for class_name in class_candidates:
+            try:
+                model_class = getattr(transformers, class_name)
+                self.model = model_class.from_pretrained(
+                    model_path, **load_kwargs
+                ).eval()
+                break
+            except Exception as exc:
+                errors.append(f"{class_name}: {exc}")
+        else:
+            raise RuntimeError(
+                "Unable to load model with configured classes: " + " | ".join(errors)
+            )
         self.generation = dict(generation or {})
 
     def generate(self, request: EvaluationRequest) -> str:
+        messages = request.messages
+        suffix = self.request_suffix_by_task.get(request.task, self.request_suffix)
+        if suffix:
+            messages = [
+                {
+                    "role": message["role"],
+                    "content": (
+                        [dict(block) for block in message["content"]]
+                        if isinstance(message["content"], list)
+                        else message["content"]
+                    ),
+                }
+                for message in request.messages
+            ]
+            for message in reversed(messages):
+                if isinstance(message["content"], list):
+                    for block in reversed(message["content"]):
+                        if block.get("type") == "text":
+                            block["text"] += suffix
+                            break
+                    else:
+                        continue
+                    break
         text = self.processor.apply_chat_template(
-            request.messages, tokenize=False, add_generation_prompt=True
+            messages, tokenize=False, add_generation_prompt=True
         )
-        image_inputs, video_inputs = self.process_vision_info(request.messages)
+        image_inputs, video_inputs = self.process_vision_info(messages)
         inputs = self.processor(
             text=[text],
             images=image_inputs,
@@ -82,5 +121,6 @@ class QwenTransformersAdapter(ModelAdapter):
 class ThinkLiteAdapter(QwenTransformersAdapter):
     """Paper adapter for ThinkLite-VL-7B."""
 
-    model_class_name = "Qwen2_5_VLForConditionalGeneration"
-
+    def __init__(self, **kwargs: Any) -> None:
+        kwargs.setdefault("model_classes", ["Qwen2_5_VLForConditionalGeneration"])
+        super().__init__(**kwargs)

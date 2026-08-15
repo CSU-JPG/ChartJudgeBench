@@ -1,0 +1,14 @@
+{
+  "display_name": "Qwen3-VL-32B",
+  "adapter": "qwen_transformers",
+  "adapter_kwargs": {
+    "model_path": "/path/to/Qwen3-VL-32B-Instruct",
+    "model_classes": ["AutoModelForImageTextToText"],
+    "torch_dtype": "bfloat16",
+    "device_map": "auto",
+    "max_pixels": 1048576,
+    "min_pixels": 65536,
+    "generation": {"max_new_tokens": 512, "temperature": 0.1, "top_p": 0.9, "do_sample": true}
+  },
+  "runner": {"workers": 1}
+}

@@ -76,7 +76,9 @@ class OpenAICompatibleAdapter(ModelAdapter):
                     blocks.append(
                         {
                             "type": "image_url",
-                            "image_url": {"url": cls._image_to_data_url(block["image"])},
+                            "image_url": {
+                                "url": cls._image_to_data_url(block["image"])
+                            },
                         }
                     )
                 else:

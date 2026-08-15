@@ -43,7 +43,10 @@ class RunnerTests(unittest.TestCase):
                 output_path=output,
                 workers=1,
             )
-            records = [json.loads(line) for line in output.read_text(encoding="utf-8").splitlines()]
+            records = [
+                json.loads(line)
+                for line in output.read_text(encoding="utf-8").splitlines()
+            ]
             self.assertEqual(first["newly_written"], 1)
             self.assertEqual(second["newly_written"], 0)
             self.assertEqual(len(records), 1)
@@ -52,4 +55,3 @@ class RunnerTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

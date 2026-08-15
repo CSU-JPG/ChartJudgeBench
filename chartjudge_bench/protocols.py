@@ -189,4 +189,3 @@ def get_protocol(task: str) -> TaskProtocol:
         "ChartEditing": ChartEditingProtocol,
         "ChartReproduction": ChartReproductionProtocol,
     }[task]()
-

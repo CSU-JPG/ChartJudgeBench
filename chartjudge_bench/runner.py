@@ -31,7 +31,9 @@ def load_completed_ids(path: Path) -> set[str]:
             try:
                 completed.add(_prediction_id(json.loads(line)))
             except Exception as exc:
-                raise ValueError(f"Invalid resume file at line {line_number}: {path}") from exc
+                raise ValueError(
+                    f"Invalid resume file at line {line_number}: {path}"
+                ) from exc
     return completed
 
 
@@ -111,7 +113,9 @@ def run_evaluation(
                         except StopIteration:
                             exhausted = True
                             break
-                        future = executor.submit(evaluate_sample, protocol, adapter, sample)
+                        future = executor.submit(
+                            evaluate_sample, protocol, adapter, sample
+                        )
                         pending[future] = sample["sample_id"]
                     if not pending:
                         continue
@@ -126,4 +130,3 @@ def run_evaluation(
                 progress.close()
 
     return {"already_completed": len(completed), "newly_written": written}
-

@@ -16,4 +16,3 @@ class ModelAdapter(ABC):
 
     def close(self) -> None:
         """Release optional backend resources."""
-

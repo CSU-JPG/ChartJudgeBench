@@ -38,4 +38,3 @@ def verify_all_prompts() -> dict[str, str]:
         name: hashlib.sha256(load_prompt(name).encode("utf-8")).hexdigest()
         for name in manifest["prompts"]
     }
-

@@ -28,6 +28,22 @@ def build_adapter(config: dict[str, Any]) -> ModelAdapter:
         from .transformers_qwen import ThinkLiteAdapter
 
         return ThinkLiteAdapter(**kwargs)
+    if adapter_type == "transformers_chat":
+        from .transformers_chat import TransformersChatAdapter
+
+        return TransformersChatAdapter(**kwargs)
+    if adapter_type == "internvl":
+        from .internvl import InternVLAdapter
+
+        return InternVLAdapter(**kwargs)
+    if adapter_type == "deepseek_vl":
+        from .deepseek_vl import DeepSeekVLAdapter
+
+        return DeepSeekVLAdapter(**kwargs)
+    if adapter_type == "molmo_vllm":
+        from .molmo_vllm import MolmoVLLMAdapter
+
+        return MolmoVLLMAdapter(**kwargs)
     if adapter_type == "custom":
         class_path = config.get("class_path")
         if not class_path or ":" not in class_path:
@@ -42,4 +58,3 @@ def build_adapter(config: dict[str, Any]) -> ModelAdapter:
 
 
 __all__ = ["ModelAdapter", "build_adapter", "load_model_config"]
-
