@@ -1,19 +1,13 @@
-# ChartJudgeBench
+<h1 align="center">ChartJudgeBench: Evaluating LMM Judges for Chart-to-Code Generation</h1>
 
-##### Welcome to ChartJudgeBench! If you find this repository useful, please give it a star ⭐.
+<h4 align="center">Welcome to ChartJudgeBench! If you find this repository useful, please give it a star ⭐.</h4>
 
 <p align="center">
-  <a href="https://hush699.github.io/chartjudge/">🌐 Project Page</a> •
-  <a href="https://huggingface.co/CSU-JPG">🤗 Hugging Face</a> •
-  📄 Paper (Coming Soon) •
-  <a href="https://github.com/hush699/ChartJudgeBench">💻 GitHub</a>
+  <a href="https://hush699.github.io/chartjudge/"><img src="https://img.shields.io/badge/PROJECT_PAGE-CHARTJUDGEBENCH-7289DA?style=for-the-badge" alt="Project Page"></a>
+  <img src="https://img.shields.io/badge/PAPER-COMING_SOON-B31B1B?style=for-the-badge" alt="Paper Coming Soon">
+  <a href="https://github.com/hush699/ChartJudgeBench"><img src="https://img.shields.io/badge/CODE-CHARTJUDGEBENCH-181717?style=for-the-badge&amp;logo=github" alt="GitHub Repository"></a>
+  <a href="https://huggingface.co/CSU-JPG"><img src="https://img.shields.io/badge/DATASET-CHARTJUDGEBENCH-FFD21E?style=for-the-badge&amp;logo=huggingface&amp;logoColor=black" alt="Hugging Face"></a>
 </p>
-
-[![Dataset](https://img.shields.io/badge/Dataset-ChartJudgeBench-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/datasets/Lijian9/ChartJudgeBench)
-[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-Apache_2.0-4E9BCD?style=for-the-badge)](LICENSE)
-
-> **ChartJudgeBench: Evaluating LMM Judges for Chart-to-Code Generation**
 
 ## 🌟 Overview
 
