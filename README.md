@@ -4,20 +4,23 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Paper-Coming_Soon-B31B1B?style=for-the-badge&amp;logo=arxiv&amp;logoColor=white" alt="Paper Coming Soon">
-  <a href="https://hush699.github.io/chartjudge/"><img src="https://img.shields.io/badge/Project_Page-ChartJudgeBench-7289DA?style=for-the-badge&amp;logo=githubpages&amp;logoColor=white" alt="Project Page"></a>
-  <a href="https://github.com/hush699/ChartJudgeBench"><img src="https://img.shields.io/badge/Code-ChartJudgeBench-100000?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="GitHub Repository"></a>
-  <a href="https://huggingface.co/CSU-JPG"><img src="https://img.shields.io/badge/Dataset-ChartJudgeBench-FFB22B?style=for-the-badge&amp;logo=huggingface&amp;logoColor=white" alt="Hugging Face Dataset"></a>
+  <a href="https://hush699.github.io/chartjudge/"><img src="https://img.shields.io/badge/Project_Page-ChartJudge-7289DA?style=for-the-badge&amp;logo=githubpages&amp;logoColor=white" alt="Project Page"></a>
+  <a href="https://github.com/hush699/ChartJudgeBench"><img src="https://img.shields.io/badge/Code-ChartJudge-100000?style=for-the-badge&amp;logo=github&amp;logoColor=white" alt="GitHub Repository"></a>
+  <a href="https://huggingface.co/CSU-JPG"><img src="https://img.shields.io/badge/Dataset-ChartJudge-FFB22B?style=for-the-badge&amp;logo=huggingface&amp;logoColor=white" alt="Hugging Face Dataset"></a>
 </p>
 
 ## 🌟 Overview
 
-**ChartJudgeBench** is a diagnostic benchmark for evaluating LMMs as
-chart-quality judges in chart-to-code workflows. It contains 1,003 Chart
-Perception Alignment (CPA) pairwise comparisons and 650 Chart Reasoning
-Judgment (CRJ) cases covering Chart Reproduction and Chart Editing. The
-benchmark targets critical errors that generic similarity metrics may miss and
-reveals systematic issues including positional bias, Accept overprediction,
-weak visual-style judgment, and leniency in RL-trained models.
+**ChartJudgeBench** is a diagnostic benchmark for evaluating LMMs as judges in
+chart-to-code workflows. It contains 1,003 Chart Perception Alignment (CPA)
+pairwise comparisons and 650 Chart Reasoning Judgment (CRJ) cases covering
+Chart Reproduction and Chart Editing. The benchmark centers on one question:
+**Can current LMMs evaluate chart-to-code outputs accurately, consistently, and
+strictly?** Experiments across 26 state-of-the-art models reveal four systematic
+limitations: positional bias, Accept overprediction, difficulty judging visual
+style and aesthetics, and unexpected leniency in RL-trained models. These
+findings highlight the need to validate LMM judge reliability before using them
+as critics or reward models for chart-to-code optimization.
 
 <p align="center">
   <img src="assets/chartjudgebench_overview.png" alt="ChartJudgeBench overview" width="100%">
